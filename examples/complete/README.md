@@ -1,6 +1,6 @@
 # Complete Example
 
-This example shows how to use the Kafka static template.
+This example shows how to use the RabbitMQ static template.
 
 ```bash
 $ terraform apply
