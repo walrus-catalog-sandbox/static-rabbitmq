@@ -1,6 +1,6 @@
-# Kafka Static Template
+# RabbitMQ Static Template
 
-This is a static template for Kafka service.
+This is a static template for RabbitMQ service.
 
 ## Examples
 
