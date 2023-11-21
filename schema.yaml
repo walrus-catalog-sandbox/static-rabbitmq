@@ -5,6 +5,7 @@ components:
   schemas:
     variables:
       required:
+      - hosts
       - password
       - username
       type: object
@@ -24,41 +25,35 @@ components:
             group: Advanced
             hidden: true
             order: 1
-        selector:
-          title: Selector
-          type: object
-          description: The selector, a map, which is used for dependencies or collaborations.
-          default: {}
-          additionalProperties:
-            type: object
-            x-walrus-ui:
-              colSpan: 12
-          x-walrus-ui:
-            colSpan: 12
-            group: Basic
-            order: 2
-        endpoint_internal:
-          title: Endpoint Internal
+        hosts:
+          title: Hosts
           type: array
-          description: The internal endpoints of the resource.
-          default: []
+          description: The host list of the RabbitMQ service.
           items:
             type: string
           x-walrus-ui:
             colSpan: 12
             group: Basic
+            order: 2
+        port:
+          title: Port
+          type: number
+          description: The port of the RabbitMQ service.
+          default: 5672
+          x-walrus-ui:
+            group: Basic
             order: 3
         username:
           title: Username
           type: string
-          description: The username of rabbitmq service
+          description: The username of the account to access the service.
           x-walrus-ui:
             group: Basic
             order: 4
         password:
           title: Password
           type: string
-          description: The password of rabbitmq service.
+          description: The password of the account to access the service.
           format: password
           writeOnly: true
           x-walrus-ui:
