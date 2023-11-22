@@ -1,3 +1,9 @@
+locals {
+  endpoints = flatten([
+    for c in var.hosts : format("%s:%d", c, var.port)
+  ])
+}
+
 #
 # Orchestration
 #
@@ -13,11 +19,12 @@ output "refer" {
   value = {
     schema = "static:rabbitmq"
     params = {
-      selector = {}
-      hosts    = var.hosts
-      port     = var.port
-      username = var.username
-      password = nonsensitive(var.password)
+      selector  = {}
+      hosts     = var.hosts
+      port      = var.port
+      endpoints = local.endpoints
+      username  = var.username
+      password  = nonsensitive(var.password)
     }
   }
 }
@@ -26,20 +33,19 @@ output "refer" {
 # Reference
 #
 
-locals {
-  endpoints = flatten([
-    for c in var.hosts : format("%s:%d", c, var.port)
-  ])
-}
-
 output "connection" {
   description = "The connection, a string combined host and port, might be a comma separated string or a single string."
   value       = join(",", local.endpoints)
 }
 
-output "connection_without_port" {
-  description = "The connection without port, a string combined host, might be a comma separated string or a single string."
+output "address" {
+  description = "The address, a string only has host, might be a comma separated string or a single string."
   value       = join(",", var.hosts)
+}
+
+output "port" {
+  description = "The port of the service."
+  value       = var.port
 }
 
 output "username" {
