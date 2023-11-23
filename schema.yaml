@@ -44,14 +44,14 @@ components:
           nullable: true
           x-walrus-ui:
             group: Basic
-            order: 3
+            order: 5
         username:
           title: Username
           type: string
           description: The username of the account to access the service.
           x-walrus-ui:
             group: Basic
-            order: 4
+            order: 3
         password:
           title: Password
           type: string
@@ -60,7 +60,7 @@ components:
           writeOnly: true
           x-walrus-ui:
             group: Basic
-            order: 5
+            order: 4
       x-walrus-ui:
         groupOrder: 
         - Basic
