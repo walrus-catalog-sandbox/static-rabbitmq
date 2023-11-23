@@ -16,6 +16,7 @@ components:
           description: |
             Receive contextual information. When Walrus deploys, Walrus will inject specific contextual information into this field.
           default: {}
+          nullable: true
           additionalProperties:
             type: object
             x-walrus-ui:
@@ -40,6 +41,7 @@ components:
           type: number
           description: The port of the RabbitMQ service.
           default: 5672
+          nullable: true
           x-walrus-ui:
             group: Basic
             order: 3
