@@ -4,11 +4,11 @@ info:
 components:
   schemas:
     variables:
+      type: object
       required:
       - hosts
       - password
       - username
-      type: object
       properties:
         context:
           title: Context
@@ -62,6 +62,6 @@ components:
             group: Basic
             order: 4
       x-walrus-ui:
-        groupOrder: 
+        groupOrder:
         - Basic
         - Advanced
