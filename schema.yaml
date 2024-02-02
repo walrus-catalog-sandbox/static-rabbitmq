@@ -25,7 +25,6 @@ components:
           type: number
           description: The port of the RabbitMQ service.
           default: 5672
-          nullable: true
           x-walrus-ui:
             group: Basic
             order: 5
